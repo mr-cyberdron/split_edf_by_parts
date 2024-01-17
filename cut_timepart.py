@@ -126,35 +126,15 @@ def calc_from_time_sec(input_file_path,y,m,d,h,min,s):
     time_delta = (target_date - startDate).total_seconds()
     return time_delta
 
+from_time_sec = 0
+dur_sec = 60*60#
 
-#from time:
-year = 2023
-month = 6
-day = 13
-hour = 18
-minute = 26
-second = 32
-
-#to time
-
-year_to = 2023
-month_to = 6
-day_to = 13
-hour_to = 19
-minute_to = 35
-second_to = 18
-
-
-from_time = datetime.datetime(year,month,day,hour,minute,second)
-to_time = datetime.datetime(year_to,month_to,day_to, hour_to, minute_to,second_to)
-dur_sec = (to_time-from_time).total_seconds()
 
 files_list = scandir(input_edf_path, ['.edf', '.EDF'])
 for file in files_list:
     out_file_dir_path = results_path + file.replace('.edf', '').replace('.EDF', '') + '/'
     create_floder(out_file_dir_path)
     input_file_path = input_edf_path + file
-    from_time_sec = calc_from_time_sec(input_file_path,year,month,day,hour,minute,second)
     split_edf(input_file_path, out_file_dir_path, from_time_sec, dur_sec)
 
 print('Check the output in edf viewer !!!!!!')
