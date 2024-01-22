@@ -91,7 +91,7 @@ def split_edf(input_file, out_dir_path, splitting_parts_num):
 
     shortest_time_cut = get_shortest_time_cut(signals,fs_mas, splitting_parts_num)
     print('shortest time cut: ' + str(shortest_time_cut))
-    file_name = input_file.split('/')[-1].replace('.edf','').replace('.EDF','')
+    file_name = input_file.split('/')[-1].replace('.edf','').replace('.EDF','').replace(' ','')
 
     start_count = list(np.zeros([1, len(signals)]).astype(int)[0])
     for parts in range(splitting_parts_num):
@@ -118,7 +118,7 @@ def split_edf(input_file, out_dir_path, splitting_parts_num):
 input_edf_path = 'input_edf/tmp/'
 results_path = 'result_splited_edfs/tmp/'
 
-split_parts = 19
+split_parts = 30
 
 files_list = scandir(input_edf_path, ['.edf', '.EDF'])
 for file in files_list:

@@ -132,8 +132,11 @@ dur_sec = 60*60#
 
 files_list = scandir(input_edf_path, ['.edf', '.EDF'])
 for file in files_list:
-    out_file_dir_path = results_path + file.replace('.edf', '').replace('.EDF', '') + '/'
-    create_floder(out_file_dir_path)
+    # out_file_dir_path = results_path + file.replace('.edf', '').replace('.EDF', '') + '/'
+    # create_floder(out_file_dir_path)
+
+    out_file_dir_path = results_path
+
     input_file_path = input_edf_path + file
     split_edf(input_file_path, out_file_dir_path, from_time_sec, dur_sec)
 
