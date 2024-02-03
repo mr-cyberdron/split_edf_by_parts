@@ -54,7 +54,7 @@ def split_edf(input_file, out_dir_path, fromTimeSec, durationSec):
     def get_fs_mas(headers):
         fs_mass = []
         for header in headers:
-            fs = int(header['sample_rate'])
+            fs = (header['sample_rate'])
             fs_mass.append(fs)
         return fs_mass
 
