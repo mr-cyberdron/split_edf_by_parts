@@ -79,6 +79,7 @@ def split_edf(input_file, out_dir_path, fromTimeSec, durationSec):
         new_sigmass = []
         for signal, start_c, stop_c in zip(sigmass, start_countt, stop_countt):
             new_signal = signal[start_c:stop_c]
+            new_signal = np.round(new_signal, decimals=5)
             new_sigmass.append(new_signal)
         return new_sigmass
         # return np.array(new_sigmass)

@@ -78,6 +78,7 @@ def split_edf(input_file, out_dir_path, splitting_parts_num):
         new_sigmass = []
         for signal, start_c, stop_c in zip(sigmass, start_countt, stop_countt):
             new_signal = signal[start_c:stop_c]
+            new_signal = np.round(new_signal, decimals=5)
             new_sigmass.append(new_signal)
         return new_sigmass
         # return np.array(new_sigmass)
@@ -118,7 +119,7 @@ def split_edf(input_file, out_dir_path, splitting_parts_num):
 input_edf_path = 'input_edf/tmp/'
 results_path = 'result_splited_edfs/tmp/'
 
-split_parts = 30
+split_parts = 2
 
 files_list = scandir(input_edf_path, ['.edf', '.EDF'])
 for file in files_list:
